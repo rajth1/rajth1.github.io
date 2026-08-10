@@ -499,6 +499,154 @@
       color: var(--muted);
     }
 
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 2.2rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2.5px;
+      background: var(--accent2);
+    }
+
+    .project-card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 6px 24px rgba(200,146,42,0.1);
+      transform: translateY(-2px);
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-light);
+      border: 1px solid var(--green);
+      padding: 0.22rem 0.65rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-tagline {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-bottom: 1.3rem;
+      max-width: 72ch;
+    }
+
+    .project-highlights {
+      list-style: none;
+      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .project-highlights li {
+      font-size: 0.82rem;
+      color: var(--text2);
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .project-highlights li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: var(--accent2);
+      border-radius: 50%;
+    }
+
+    .project-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .project-pill {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.32rem 0.8rem;
+      border-radius: 2px;
+      border: 1px solid rgba(26,58,92,0.25);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.18s;
+    }
+
+    .project-link:hover {
+      border-bottom-color: var(--accent);
+    }
+
     /* ── CONTACT ── */
     .contact-blurb {
       font-size: 0.97rem;
@@ -823,11 +971,67 @@
     <div class="section-label">Projects</div>
     <div class="reveal">
       <h2>Work &amp;<br><em>Projects.</em></h2>
-      <div style="margin-top:1.8rem">
-        <div class="project-placeholder">
-          <span class="ph-icon">🚧</span>
-          <p>Projects coming soon. Check back later.</p>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">NEPSE Bank Volatility Forecasting</div>
+            <span class="project-status">● Live</span>
+          </div>
+          <div class="project-tagline">End-to-end MLOps pipeline forecasting next-day volatility for Nepal Stock Exchange bank stocks</div>
+          <p class="project-desc">
+            Built a fully automated forecasting system for 19 NEPSE-listed commercial bank equities — from data acquisition through a deployed, publicly-queryable API — designed and shipped entirely on free-tier infrastructure.
+          </p>
+          <ul class="project-highlights">
+            <li>Reverse-engineered NEPSE's obfuscated authentication scheme to build a resilient daily scraper against an undocumented exchange API, with automated market-status detection and failure handling via scheduled GitHub Actions</li>
+            <li>Engineered a leak-free volatility feature set (Parkinson high-low estimator, HAR-style realized-volatility lags) and validated a pooled LightGBM model using purged, expanding-window walk-forward cross-validation against naive baselines</li>
+            <li>Tracked experiments and model versions with MLflow, including automated promotion of the best-performing model to production on each weekly retrain</li>
+            <li>Deployed a Dockerized FastAPI service on Render serving live forecasts from a PostgreSQL backend, with a fully decoupled serving layer that never runs live model inference</li>
+          </ul>
+          <div class="project-pills">
+            <span class="project-pill">Python</span>
+            <span class="project-pill">PostgreSQL</span>
+            <span class="project-pill">LightGBM</span>
+            <span class="project-pill">MLflow</span>
+            <span class="project-pill">FastAPI</span>
+            <span class="project-pill">Docker</span>
+            <span class="project-pill">GitHub Actions</span>
+            <span class="project-pill">Render</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/rajth1/nepseML" target="_blank" rel="noopener" class="project-link">↗ View Code</a>
+            <!-- Replace with your live Render URL once you have it -->
+            <a href="https://nepse-bank-volatility-api.onrender.com/docs" target="_blank" rel="noopener" class="project-link">↗ Live API</a>
+          </div>
         </div>
+
+        <!-- nepseEVT -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">Modelling Tail Risk in NEPSE with Extreme Value Theory</div>
+            <span class="project-status">● Complete</span>
+          </div>
+          <div class="project-tagline">Peaks-over-threshold EVT applied to NEPSE index returns to quantify severe downside risk</div>
+          <p class="project-desc">
+            Standard risk models assuming normally-distributed returns systematically underestimate the frequency and severity of extreme market crashes. This project applies Extreme Value Theory to the NEPSE index to produce tail-risk estimates that don't rely on that flawed normality assumption.
+          </p>
+          <ul class="project-highlights">
+            <li>Applied the Peaks-Over-Threshold approach, fitting a Generalized Pareto Distribution to extreme daily losses to estimate Value at Risk (VaR) and Expected Shortfall (ES)</li>
+            <li>Used Mean Excess Plots to identify the optimal GPD threshold, and fit shape (ξ) and scale (σ) parameters via SciPy's <code>genpareto</code></li>
+            <li>Complemented tail estimates with market microstructure and liquidity proxies — the Amihud Illiquidity Ratio and the Corwin-Schultz high-low spread estimator — to contextualise extreme moves against trading conditions</li>
+          </ul>
+          <div class="project-pills">
+            <span class="project-pill">Python</span>
+            <span class="project-pill">Pandas / NumPy</span>
+            <span class="project-pill">SciPy</span>
+            <span class="project-pill">Matplotlib / Seaborn</span>
+            <span class="project-pill">Extreme Value Theory</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/rajth1/nepseEVT" target="_blank" rel="noopener" class="project-link">↗ View Code</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
