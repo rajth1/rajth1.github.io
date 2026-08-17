@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raj Thakur — Actuarial & Quantitative Sciences</title>
+  <title>Raj Thakur | Actuarial & Quantitative Sciences</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -318,7 +318,7 @@
 
     .exam-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-top: 2.2rem;
     }
@@ -432,6 +432,123 @@
     .pill.tech:hover {
       background: var(--accent);
       color: white;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 2.2rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .exp-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2.5px;
+      background: var(--accent);
+    }
+
+    .exp-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 24px rgba(26,58,92,0.09);
+    }
+
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.3rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .exp-org {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--accent2);
+      margin-top: 0.2rem;
+    }
+
+    .exp-dates {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 0.3rem;
+    }
+
+    /* ── RESEARCH / WORKING PAPERS ── */
+    .paper-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.6rem;
+    }
+
+    .paper-item {
+      padding: 1.3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .paper-item:first-child { padding-top: 0; }
+    .paper-item:last-child { border-bottom: none; }
+
+    .paper-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+
+    .paper-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+      max-width: 62ch;
+    }
+
+    .paper-status {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      background: rgba(200,146,42,0.1);
+      border: 1px solid var(--accent2);
+      padding: 0.22rem 0.65rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .paper-status-done {
+      color: var(--green);
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+
+    .paper-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 70ch;
     }
 
     /* ── INTERESTS ── */
@@ -788,6 +905,8 @@
     <a class="nav-logo" href="#hero">Raj Thakur</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -797,42 +916,41 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow">Open to opportunities</div>
+      <div class="hero-eyebrow">Open to research &amp; analytical roles</div>
       <h1>Raj<br><em>Thakur</em></h1>
       <p class="hero-desc">
-        Mathematical sciences student and actuarial analyst in training — combining mathematical rigour with modern data science, risk modelling, and financial analysis.
+        Mathematical sciences student and actuarial analyst building ML pipelines and quantitative risk models, with a standing research interest in tail risk, random matrix theory, and applied econometrics on emerging markets.
       </p>
       <div class="hero-tags">
-        <span class="tag primary">Bachelors in Mathematical Sciences</span>
-        <span class="tag primary">IFoA Member</span>
-        <span class="tag success">CS1 Passed</span>
-        <span class="tag success">CM1 Passed</span>
+        <span class="tag primary">BSc Mathematical Sciences · GPA 3.64</span>
+        <span class="tag success">SOA Exams P · FM · FAM: Passed</span>
+        <span class="tag primary">Research-Oriented</span>
       </div>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="#about" class="btn btn-ghost">Learn more</a>
+        <a href="#research" class="btn btn-ghost">See my research</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div>
-          <div class="stat-label">IFoA Exams Passed</div>
-          <div class="stat-sub">CS1 · Actuarial Statistics &nbsp;|&nbsp; CM1 · Actuarial Mathematics</div>
+          <div class="stat-label">SOA Exams Passed</div>
+          <div class="stat-sub">P · Probability &nbsp;|&nbsp; FM · Financial Math &nbsp;|&nbsp; FAM · Actuarial Math</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">5+</div>
+        <div class="stat-num">3</div>
         <div>
-          <div class="stat-label">Technical Languages</div>
-          <div class="stat-sub">Python · R · C++ · SQL · MS Excel · Power Bi</div>
+          <div class="stat-label">Working Papers In Progress</div>
+          <div class="stat-sub">Labor migration · Inflation forecasting · AI &amp; labor markets</div>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-num">∞</div>
         <div>
-          <div class="stat-label">Areas of Interest</div>
-          <div class="stat-sub">Risk · Data · Research · AI · Finance</div>
+          <div class="stat-label">Open Theoretical Questions</div>
+          <div class="stat-sub">Tail risk · Random matrices · Optimal transport · Mean field games</div>
         </div>
       </div>
     </div>
@@ -844,27 +962,110 @@
     <div class="reveal">
       <h2>Quantitative mind,<br><em>rigorous by nature.</em></h2>
       <p class="about-text">
-        I'm <strong>Raj Thakur</strong>, a <strong>Bachelors in Mathematical Sciences</strong> student with a focus on actuarial science, quantitative modelling, and data analysis. I am a member of the <strong>Institute and Faculty of Actuaries (IFoA)</strong>, having passed the CS1 and CM1 professional examinations.
+        I'm <strong>Raj Thakur</strong>, a final-year <strong>Bachelors in Mathematical Sciences</strong> student at Tribhuvan University, focused on actuarial science, quantitative modelling, and applied research. I'm a candidate with the <strong>Society of Actuaries (SOA)</strong>, having passed Exams <strong>P, FM, and FAM</strong>.
       </p>
       <p class="about-text">
-        My academic and professional interests sit at the intersection of <strong>mathematics, risk, and intelligent systems</strong> — from classical probability and statistical inference to modern machine learning and financial modelling. I am drawn to work that demands precision: research, quantitative analysis, actuarial practice, and data-driven problem solving.
+        My work sits at the intersection of <strong>mathematics, risk, and applied machine learning</strong>: from classical probability and extreme value theory to LightGBM pipelines and econometric forecasting. I'm as interested in the open theoretical questions (tail dependence, random matrices, optimal transport) as I am in shipping something that runs in production. Most of what I build starts from the same question: what does a thin, noisy, emerging-market dataset actually let us claim?
       </p>
       <p class="about-text">
-        Alongside technical expertise, I place strong value on <strong>clear communication, collaborative leadership,</strong> and translating complex quantitative results into actionable decisions.
+        Alongside the technical work, I place real value on <strong>clear writing, cross-departmental collaboration,</strong> and translating dense quantitative results into decisions non-specialists can act on.
       </p>
 
       <div class="exam-grid">
         <div class="exam-card">
-          <div class="exam-code">CS1</div>
-          <div class="exam-name">Actuarial Statistics</div>
-          <div class="exam-desc">Probability, statistical inference, regression analysis, time series, and Bayesian methods applied to actuarial contexts.</div>
+          <div class="exam-code">P</div>
+          <div class="exam-name">Probability</div>
+          <div class="exam-desc">Foundational probability theory, distributions, and stochastic processes underlying actuarial and risk models.</div>
           <div class="passed-badge">✓ Passed</div>
         </div>
         <div class="exam-card">
-          <div class="exam-code">CM1</div>
-          <div class="exam-name">Actuarial Mathematics</div>
-          <div class="exam-desc">Life contingencies, annuities, insurance contract pricing, and core financial mathematics.</div>
+          <div class="exam-code">FM</div>
+          <div class="exam-name">Financial Mathematics</div>
+          <div class="exam-desc">Time value of money, interest theory, annuities, and derivatives fundamentals.</div>
           <div class="passed-badge">✓ Passed</div>
+        </div>
+        <div class="exam-card">
+          <div class="exam-code">FAM</div>
+          <div class="exam-name">Fundamentals of Actuarial Mathematics</div>
+          <div class="exam-desc">Life contingencies, survival models, and long-term actuarial and financial mathematics.</div>
+          <div class="passed-badge">✓ Passed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section-wrap" id="experience">
+    <div class="section-label">Experience</div>
+    <div class="reveal">
+      <h2>Applied practice,<br><em>real institutions.</em></h2>
+
+      <div class="exp-card">
+        <div class="exp-head">
+          <div>
+            <div class="exp-role">Actuarial Intern</div>
+            <div class="exp-org">United Ajod Insurance Ltd.</div>
+          </div>
+          <div class="exp-dates">Jul 2026 – Aug 2026</div>
+        </div>
+        <ul class="project-highlights">
+          <li>Designed an ORSA calculation engine and a dynamic risk-monitoring dashboard in Excel to evaluate enterprise capital adequacy and solvency requirements</li>
+          <li>Built Key Risk Indicators mapped across a 161-row cross-departmental risk register, establishing quantitative thresholds for operational, market, and underwriting risk</li>
+          <li>Ran a programmatic data-quality audit of the risk register, catching threshold typos, status mismatches, and blank rows that manual review had missed</li>
+          <li>Collaborated with stakeholders across departments to align individual risk inputs with overall enterprise risk management objectives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="section-wrap" id="research">
+    <div class="section-label">Research</div>
+    <div class="reveal">
+      <h2>Beyond coursework,<br><em>into open questions.</em></h2>
+      <p class="about-text">
+        I treat mathematics as a toolkit for open empirical questions, particularly where developing-economy data is thin, noisy, and under-studied. Below are papers currently in progress, and the theoretical areas I'm working toward next.
+      </p>
+
+      <div class="skill-group-label" style="margin-top: 2.2rem;">Working Papers</div>
+      <div class="paper-list">
+        <div class="paper-item">
+          <div class="paper-top">
+            <div class="paper-title">Machine Learning Approaches to Nepal CPI Inflation Forecasting</div>
+            <span class="paper-status">Working Paper</span>
+          </div>
+          <p class="paper-desc">Benchmarking LASSO, Elastic Net, Random Forest, and Gradient Boosting against AR/VAR baselines for Nepal CPI, with SHAP-based explainability to keep the forecasts interpretable.</p>
+        </div>
+        <div class="paper-item">
+          <div class="paper-top">
+            <div class="paper-title">Healthcare &amp; Insurance Behavioral Analytics among Young Adults</div>
+            <span class="paper-status paper-status-done">Dissertation · Complete</span>
+          </div>
+          <p class="paper-desc">A logistic regression model in R examining how financial literacy shapes future healthcare and insurance decisions among young adults in Kathmandu, built on original survey data (n = 135).</p>
+        </div>
+      </div>
+
+      <div class="skill-group-label" style="margin-top: 2.6rem;">Theoretical Interests</div>
+      <div class="interest-grid" style="margin-top:1.2rem">
+        <div class="interest-card">
+          <span class="interest-icon">📉</span>
+          <div class="interest-title">Extreme Value Theory &amp; Tail Risk</div>
+          <div class="interest-desc">Peaks-over-threshold and GPD-based estimation of severe downside risk in thin, illiquid emerging markets.</div>
+        </div>
+        <div class="interest-card">
+          <span class="interest-icon">🎲</span>
+          <div class="interest-title">Random Matrix Theory</div>
+          <div class="interest-desc">Marchenko–Pastur filtering to denoise correlation structure in NEPSE covariance matrices for more stable portfolio estimation.</div>
+        </div>
+        <div class="interest-card">
+          <span class="interest-icon">🔀</span>
+          <div class="interest-title">Optimal Transport</div>
+          <div class="interest-desc">Wasserstein distributionally robust optimization as a way to build portfolios that stay robust under model misspecification.</div>
+        </div>
+        <div class="interest-card">
+          <span class="interest-icon">🌊</span>
+          <div class="interest-title">Mean Field Games &amp; Rough Paths</div>
+          <div class="interest-desc">Longer-horizon reading interest: how large-population strategic interaction and rough-path methods might extend classical stochastic finance.</div>
         </div>
       </div>
     </div>
@@ -882,46 +1083,49 @@
           <span class="pill">Actuarial Analysis</span>
           <span class="pill">Financial Mathematics</span>
           <span class="pill">Quantitative Modelling</span>
-          <span class="pill">Stochastic Modelling</span>
           <span class="pill">Risk Analysis</span>
-          <span class="pill">Mathematical Optimisation</span>
+          <span class="pill">Extreme Value Theory</span>
+          <span class="pill">Time Series Analysis</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-label">Mathematics &amp; Statistics</div>
         <div class="skill-pills">
-          <span class="pill">Statistics</span>
           <span class="pill">Probability Theory</span>
+          <span class="pill">Statistical Inference</span>
           <span class="pill">Regression Analysis</span>
-          <span class="pill">Calculus</span>
+          <span class="pill">Survival Analysis</span>
           <span class="pill">Linear Algebra</span>
-          <span class="pill">Real Analysis</span>
-          <span class="pill">Discrete Mathematics</span>
+          <span class="pill">Calculus</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Finance &amp; Economics</div>
-        <div class="skill-pills">
-          <span class="pill">Business Finance</span>
-          <span class="pill">Economic Analysis</span>
-          <span class="pill">Data-driven Problem Solving</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Data Science &amp; Technology</div>
+        <div class="skill-group-label">Machine Learning &amp; AI</div>
         <div class="skill-pills">
           <span class="pill">Machine Learning</span>
-          <span class="pill">Artificial Intelligence</span>
-          <span class="pill">Data Analysis</span>
+          <span class="pill">Large Language Models</span>
+          <span class="pill">Agentic AI</span>
+          <span class="pill tech">PyTorch</span>
+          <span class="pill tech">Scikit-learn</span>
+          <span class="pill tech">LightGBM</span>
+          <span class="pill tech">Hugging Face</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Data Engineering &amp; Tools</div>
+        <div class="skill-pills">
           <span class="pill tech">Python</span>
           <span class="pill tech">R</span>
-          <span class="pill tech">C++</span>
           <span class="pill tech">SQL</span>
+          <span class="pill tech">PostgreSQL</span>
+          <span class="pill tech">FastAPI</span>
+          <span class="pill tech">MLflow</span>
+          <span class="pill tech">Docker</span>
+          <span class="pill tech">GitHub Actions</span>
           <span class="pill tech">MS Excel</span>
-	  <span class="pill tech">Power Bi</span>
         </div>
       </div>
 
@@ -929,38 +1133,8 @@
         <div class="skill-group-label">Professional</div>
         <div class="skill-pills">
           <span class="pill">Technical Writing</span>
-          <span class="pill">Communication</span>
-          <span class="pill">Leadership</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- INTERESTS -->
-  <div class="section-wrap" id="interests">
-    <div class="section-label">Interests</div>
-    <div class="reveal">
-      <h2>Where I want<br><em>to make impact.</em></h2>
-      <div class="interest-grid" style="margin-top:1.8rem">
-        <div class="interest-card">
-          <span class="interest-icon">📊</span>
-          <div class="interest-title">Data &amp; Research</div>
-          <div class="interest-desc">Building rigorous, evidence-based analyses and contributing to quantitative research across academic and professional settings.</div>
-        </div>
-        <div class="interest-card">
-          <span class="interest-icon">⚠️</span>
-          <div class="interest-title">Risk Modelling</div>
-          <div class="interest-desc">Quantifying and managing uncertainty in financial, insurance, and systemic risk contexts through actuarial and statistical methods.</div>
-        </div>
-        <div class="interest-card">
-          <span class="interest-icon">🤖</span>
-          <div class="interest-title">Artificial Intelligence</div>
-          <div class="interest-desc">Developing and applying intelligent systems grounded in mathematical theory, with a focus on real-world analytical problems.</div>
-        </div>
-        <div class="interest-card">
-          <span class="interest-icon">📈</span>
-          <div class="interest-title">Quantitative Finance</div>
-          <div class="interest-desc">Applying actuarial, statistical, and optimisation methods to financial markets, investment analysis, and economic modelling.</div>
+          <span class="pill">Cross-cultural Communication</span>
+          <span class="pill">Stakeholder Collaboration</span>
         </div>
       </div>
     </div>
@@ -980,7 +1154,7 @@
           </div>
           <div class="project-tagline">End-to-end MLOps pipeline forecasting next-day volatility for Nepal Stock Exchange bank stocks</div>
           <p class="project-desc">
-            Built a fully automated forecasting system for 19 NEPSE-listed commercial bank equities — from data acquisition through a deployed, publicly-queryable API — designed and shipped entirely on free-tier infrastructure.
+            Built a fully automated forecasting system for 19 NEPSE-listed commercial bank equities, from data acquisition through a deployed, publicly-queryable API, designed and shipped entirely on free-tier infrastructure.
           </p>
           <ul class="project-highlights">
             <li>Reverse-engineered NEPSE's obfuscated authentication scheme to build a resilient daily scraper against an undocumented exchange API, with automated market-status detection and failure handling via scheduled GitHub Actions</li>
@@ -1018,7 +1192,8 @@
           <ul class="project-highlights">
             <li>Applied the Peaks-Over-Threshold approach, fitting a Generalized Pareto Distribution to extreme daily losses to estimate Value at Risk (VaR) and Expected Shortfall (ES)</li>
             <li>Used Mean Excess Plots to identify the optimal GPD threshold, and fit shape (ξ) and scale (σ) parameters via SciPy's <code>genpareto</code></li>
-            <li>Complemented tail estimates with market microstructure and liquidity proxies — the Amihud Illiquidity Ratio and the Corwin-Schultz high-low spread estimator — to contextualise extreme moves against trading conditions</li>
+            <li>Complemented tail estimates with market microstructure and liquidity proxies, the Amihud Illiquidity Ratio and the Corwin-Schultz high-low spread estimator, to contextualise extreme moves against trading conditions</li>
+            <li>Found that large NEPSE losses coincide with high turnover rather than low liquidity, the opposite of the standard positive liquidity-risk correlation assumption, and adjusted the risk framework toward holding-period extension scaled to NEPSE's T+3 settlement cycle</li>
           </ul>
           <div class="project-pills">
             <span class="project-pill">Python</span>
@@ -1085,8 +1260,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-copy">© 2025 Raj Thakur. All rights reserved.</span>
-    <span class="footer-ifoa">IFoA Member</span>
+    <span class="footer-copy">© 2026 Raj Thakur. All rights reserved.</span>
+    <span class="footer-ifoa">SOA Candidate</span>
   </footer>
 
   <script>
